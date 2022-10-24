@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "360107023905",
+    "project_id": "prestamo-17003",
+    "storage_bucket": "prestamo-17003.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360107023905:android:7c4b6a64d9fcbb03890d60",
+        "android_client_info": {
+          "package_name": "com.dantsu.thermalprinter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360107023905-p4pn64nsku6egp9obqhjflo72isam3qs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdWc2aCpVEKk5WzyWGRIATRb0Pki6q4bI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360107023905-p4pn64nsku6egp9obqhjflo72isam3qs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

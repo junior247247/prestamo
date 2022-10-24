@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:fitsSystemWindows="true"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:textSize="30dp"
+        android:textStyle="bold"
+
+        android:textColor="@color/black"
+        android:layout_marginTop="60dp"
+        android:layout_width="wrap_content"
+        android:text="Inicio de Sesion"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+   android:gravity="center"
+    android:layout_marginTop="100dp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:text="usuario"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/User"
+            android:textColorHint="#ccc"
+            android:text=""
+            android:inputType="textEmailAddress"
+            android:hint="usuario"
+            android:textColor="@color/white"
+            android:padding="18dp"
+            android:backgroundTint="@color/black"
+            android:background="@drawable/backinput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:text="Password"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/pass"
+            android:textColorHint="#ccc"
+            android:text=""
+            android:hint="Password"
+            android:inputType="numberPassword"
+            android:textColor="@color/white"
+            android:padding="18dp"
+            android:backgroundTint="@color/black"
+            android:background="@drawable/backinput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:id="@+id/loginButton"
+            android:background="@drawable/backinput"
+            android:padding="20dp"
+            android:layout_marginTop="40dp"
+            android:text="iniciar sesion"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>
+
+</LinearLayout>

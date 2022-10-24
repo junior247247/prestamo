@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#cccc"
+    tools:context=".SumarActivity">
+    <TextView
+        android:id="@+id/textViewName"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        android:textSize="24dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:text="JINIOR JIEMENEZ"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:paddingLeft="10dp"
+
+        android:id="@+id/editextMonto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="number"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/backinput" />
+
+
+    <Button
+        android:id="@+id/buttonSumar"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:text="GUARDAR"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/purpura"
+        android:background="@drawable/backinput"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
