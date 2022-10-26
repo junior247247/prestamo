@@ -1,6 +1,7 @@
 package com.dantsu.thermalprinter;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -35,7 +36,9 @@ import com.dantsu.thermalprinter.async.AsyncEscPosPrinter;
 import com.dantsu.thermalprinter.async.AsyncUsbEscPosPrint;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -95,6 +98,9 @@ public class UpdatePaymentActivity extends AppCompatActivity {
 
     }
     void shwClient(){
+
+
+
         firestore.collection("Clientes").document(idCliente).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -107,22 +113,26 @@ public class UpdatePaymentActivity extends AppCompatActivity {
         });
     }
     void show(){
-        firestore.collection("PagosTotal").document(idCliente).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        firestore.collection("PagosTotal").document(idCliente).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 if (documentSnapshot.exists()){
+                    if (documentSnapshot.exists()){
 
-                    long prestamo=documentSnapshot.getLong("prestamo");
-                    long pendiente=documentSnapshot.getLong("pendiente");
-                    long pagado=documentSnapshot.getLong("pagado");
-                    textiViewPrestamo.setText("PRESTAMO:"+prestamo);
-                    textiViewPendiente.setText("PENDIENTE:" + pendiente);
-                    textiViewPagado.setText("PAGADO:" + pagado);
+                        long prestamo=documentSnapshot.getLong("prestamo");
+                        long pendiente=documentSnapshot.getLong("pendiente");
+                        long pagado=documentSnapshot.getLong("pagado");
+                        textiViewPrestamo.setText("PRESTAMO:"+prestamo);
+                        textiViewPendiente.setText("PENDIENTE:" + pendiente);
+                        textiViewPagado.setText("PAGADO:" + pagado);
+
+                    }
 
                 }
-
             }
         });
+
+
     }
 
     void update(long monto) {
@@ -134,6 +144,10 @@ public class UpdatePaymentActivity extends AppCompatActivity {
               //  realm.beginTransaction();
                // realm.insert(pagos);
                 //realm.commitTransaction();
+
+
+
+
 
                 firestore.collection("PagosTotal").document(idCliente).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -350,24 +364,6 @@ public class UpdatePaymentActivity extends AppCompatActivity {
      *
      */
 
-    String text="      \"[L]\\n\" +\n" +
-            "                        \"[C]<u><font size='big'>ORDER N°045</font></u>\\n\" +\n" +
-            "                        \"[L]\\n\" +\n" +
-            "                        \"[C]<u type='double'>\" + format.format(new Date()) + \"</u>\\n\" +\n" +
-            "                        \"[C]\\n\" +\n" +
-            "                        \"[C]================================\\n\" +\n" +
-            "                        \"[L]\\n\" +\n" +
-            "                        \"[L]<b>Cliente\" +cliente.toUpperCase() +\"\\n\"+\n" +
-            "                        \"[L] Prestamo: \" + prestamo +\"\\n\"+\n" +
-            "                        \"[L]\\n\" +\n" +
-            "                        \"[L]Pendiente: \" + pendiente+\"\\n\"+\n" +
-            "                        \"[L]Pagado: \" + \"0\"+\"\\n\"+\n" +
-            "                        \"[L]\\n\" +\n" +
-            "                        \"[C]--------------------------------\\n\" +\n" +
-            "                        \"[R]TOTAL PRICE :[R]34.98€\\n\" +\n" +
-            "                        \"[C]<barcode type='ean13' height='10'>831254784551</barcode>\\n\" +\n" +
-            "                        \"[L]\\n\" +\n" +
-            "                        \"[C]<qrcode size='20'>http://www.developpeur-web.dantsu.com/</qrcode>\\n\"";
 
 
     @SuppressLint("SimpleDateFormat")
