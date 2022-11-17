@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements RealmChangeListen
 
     void buscar(String filtro) {
 
-        Query query = FirebaseFirestore.getInstance().collection("Clientes").orderBy("name").startAt(filtro).endAt(filtro + '\uf8ff');
+        Query query = FirebaseFirestore.getInstance().collection("Clientes").orderBy("name").startAt(filtro.toLowerCase()).endAt(filtro.toLowerCase() + '\uf8ff');
         FirestoreRecyclerOptions<ClientesFire> options = new FirestoreRecyclerOptions.Builder<ClientesFire>().setQuery(query, ClientesFire.class).build();
         adapterCliente = new FireClientAdapter(options, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

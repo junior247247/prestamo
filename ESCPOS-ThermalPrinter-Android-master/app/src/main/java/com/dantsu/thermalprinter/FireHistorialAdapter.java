@@ -27,6 +27,12 @@ public class FireHistorialAdapter extends FirestoreRecyclerAdapter<PagosFire,Fir
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd - HH:mm:ss");
             holder.textViewFecha.setText(format.format(model.getDate()));
             holder.textViewMonto.setText(model.getPagado()+" $RD");
+            if (model.getTipo()==null){
+                holder.textViewTipo.setText("PAGO");
+
+            }else {
+                holder.textViewTipo.setText(model.getTipo());
+            }
         }else{
             holder.itemView.setVisibility(View.INVISIBLE);
         }
@@ -39,11 +45,12 @@ public class FireHistorialAdapter extends FirestoreRecyclerAdapter<PagosFire,Fir
     }
 
     public  class  ViewHolder extends RecyclerView.ViewHolder{
-        TextView textViewMonto,textViewFecha;
+        TextView textViewMonto,textViewFecha,textViewTipo;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.textViewMonto=itemView.findViewById(R.id.textViewMonto);
             this.textViewFecha=itemView.findViewById(R.id.textViewFecha);
+            this.textViewTipo=itemView.findViewById(R.id.textViewTipo);
         }
     }
 }

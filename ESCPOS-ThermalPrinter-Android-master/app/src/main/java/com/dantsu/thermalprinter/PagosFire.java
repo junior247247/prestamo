@@ -16,6 +16,7 @@ public class PagosFire {
      private long pagado;
      private long prestamo;
      private long pendiente;
+     private String tipo;
      private Date date;
      private String DisplayName;
      private  long timestamp;
@@ -25,7 +26,7 @@ public class PagosFire {
      }
 
 
-    public PagosFire(String id, String idClient, long pagado, long prestamo, long pendiente, Date date, String displayName,long timestamp) {
+    public PagosFire(String id, String idClient, long pagado, long prestamo, long pendiente, Date date, String displayName,long timestamp,String tipo) {
         this.id = id;
         this.idClient = idClient;
         this.pagado = pagado;
@@ -34,6 +35,15 @@ public class PagosFire {
         this.date = date;
         DisplayName = displayName;
         this.timestamp=timestamp;
+        this.tipo=tipo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public long getTimestamp() {

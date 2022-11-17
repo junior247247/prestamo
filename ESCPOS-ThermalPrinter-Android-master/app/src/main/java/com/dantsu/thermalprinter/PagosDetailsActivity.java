@@ -92,6 +92,7 @@ public class PagosDetailsActivity extends AppCompatActivity {
         pagosFire.setPendiente(Long.valueOf(monto));
         pagosFire.setDisplayName(displayname);
         pagosFire.setIdClient(idClient);
+        pagosFire.setTipo("PAGO");
         pagosFire.setTimestamp(new Date().getTime());
 
         firestore.collection("PagosFire").document(id).set(pagosFire);
@@ -108,6 +109,7 @@ public class PagosDetailsActivity extends AppCompatActivity {
         pagoTotal.setPrestamo(Long.valueOf(monto));
         pagoTotal.setIdCliente(idClient);
         pagoTotal.setTimestamp(new Date().getTime());
+
 
         firestore.collection("PagosTotal").document(idClient).set(pagoTotal);
       //  realm.beginTransaction();

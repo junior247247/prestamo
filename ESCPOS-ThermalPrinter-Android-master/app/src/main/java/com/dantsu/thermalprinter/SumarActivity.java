@@ -51,6 +51,7 @@ public class SumarActivity extends AppCompatActivity {
     TextView textViewName;
     EditText editextMonto;
     FirebaseFirestore firestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +102,23 @@ public class SumarActivity extends AppCompatActivity {
                 map.put("prestamo",prestamo);
                 map.put("pendiente",pendiente);
                 firestore.collection("PagosTotal").document(idClient).update(map);
+
+                PagosFire pagosFire= new PagosFire();
+                String id=firestore.collection("PagosFire").document().getId();
+                pagosFire.setDate(new Date());
+                pagosFire.setPagado(0);
+                pagosFire.setId(id);
+                pagosFire.setPrestamo(Long.valueOf(monto));
+                pagosFire.setPendiente(Long.valueOf(monto));
+                pagosFire.setDisplayName("");
+                pagosFire.setIdClient(idClient);
+                pagosFire.setTipo("INCREMENTO");
+                pagosFire.setTimestamp(new Date().getTime());
+
+                firestore.collection("PagosFire").document(id).set(pagosFire);
+
+
+
                 Toast.makeText(SumarActivity.this, "Prestamos Incrementado", Toast.LENGTH_SHORT).show();
                 printBluetooth(textViewName.getText().toString(),String.valueOf(prestamo),String.valueOf(pendiente),String.valueOf(pagado));
             }

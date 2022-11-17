@@ -165,6 +165,7 @@ public class UpdatePaymentActivity extends AppCompatActivity {
                                 pagosFire.setDate(new Date());
                                 pagosFire.setPagado(Long.valueOf(monto));
                                 pagosFire.setId(id);
+                                pagosFire.setTipo("PAGO");
                                 pagosFire.setPrestamo(Long.valueOf(monto));
                                 pagosFire.setPendiente(Long.valueOf(monto));
                                 pagosFire.setDisplayName(displayname);
